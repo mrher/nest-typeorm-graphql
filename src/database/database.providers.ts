@@ -6,13 +6,14 @@ export const databaseProviders = [
     useFactory: async () => {
       const dataSource = new DataSource({
         type: 'mysql',
-        host: 'localhost',
+        host: '127.0.0.1',
         port: 3306,
         username: 'root',
-        password: 'root',
-        database: 'test',
+        password: 'gfhfnhegth51',
+        database: 'nest_test_db',
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-        synchronize: true,
+        migrations: ['src/migrations/*{.ts,.js}'],
+        synchronize: false,
       });
 
       return dataSource.initialize();
